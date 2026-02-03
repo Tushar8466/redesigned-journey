@@ -26,15 +26,25 @@ export default function HeroSection() {
     pathLengthFifth,
   ];
 
+
+  const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
+
   return (
     <div
       ref={containerRef}
       className="h-[400vh] bg-black w-full dark:border dark:border-white/[0.1] rounded-md relative pt-40 overflow-clip"
     >
-    <GoogleGeminiEffect 
+      <GoogleGeminiEffect
         pathLengths={pathLengths}
         className="sticky top-0 h-screen w-full"
-    />
+      />
+
+      <div
+        style={{ opacity: scrollIndicatorOpacity.get() }}
+        className="fixed bottom-10 left-1/2 -translate-x-1/2 z-50 text-white/60 text-sm font-light tracking-widest pointer-events-none animate-pulse"
+      >
+        SCROLL DOWN
+      </div>
     </div>
   );
 }

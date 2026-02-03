@@ -28,14 +28,24 @@ export const GoogleGeminiEffect = ({
       <p className="text-lg md:text-7xl font-normal pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300">
         <div className="flex flex-col items-center">
           <span>Hi, I am Tushar Singla</span>
-          <FlipWords words={[ "a Student", "a Frontend Developer" , "passionate towards coding"]} className="rounded-2xl p-2 bg-blue-500 mt-2"/>
+          <FlipWords
+            words={[
+              "a Student",
+              "a Frontend Developer",
+              "passionate towards coding",
+            ]}
+            className="rounded-2xl p-2 bg-blue-500 mt-2"
+          />
         </div>
       </p>
       <p className="text-xs md:text-xl font-normal text-center text-neutral-400 mt-4 max-w-lg mx-auto">
         {description ||
           `I am passionate frontend developer who enjoys to code `}
       </p>
-      <div className="w-full h-[890px] -top-60 md:-top-40  flex items-center justify-center bg-red-transparent absolute "></div>
+      <div className="w-full h-222.5 -top-60 md:-top-40  flex items-center justify-center bg-red-transparent absolute "></div>
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-40 text-white uppercase text-sm">
+        scroll
+      </div>
       <svg
         width="1440"
         height="890"
