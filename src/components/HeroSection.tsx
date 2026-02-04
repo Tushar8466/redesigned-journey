@@ -6,7 +6,6 @@ import { GoogleGeminiEffect } from "./ui/google-gemini-effect";
 import { LampContainer } from "./ui/lamp";
 import { motion } from "motion/react";
 import Cards from "./Cards";
-import { div } from "motion/react-client";
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -76,7 +75,7 @@ export default function HeroSection() {
       >
         SCROLL DOWN
       </div>
-      {/* <LampContainer>
+      <LampContainer>
         <motion.h1
           initial={{ opacity: 0.5, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -89,76 +88,53 @@ export default function HeroSection() {
         >
           Build products <br /> the right way
         </motion.h1>
-      </LampContainer> */}
-      <div ref={cardsRef} className="flex gap-6 flex-wrap justify-center">
-        {
-         <Cards />
-
-        }
-        {/* <Cards
-          title="StyleRush"
-          description="E-commerce platform for fashion and style"
-          href="https://github.com/Tushar8466/stylerush"
+      </LampContainer>
+      <div
+        ref={cardsRef}
+        className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center w-350 flex justify-center items-center"
+      >
+        <Cards
           imageSrc="/assets/project1.png"
-          details={{
-            about: "A modern e-commerce platform built with Next.js and TypeScript, featuring seamless shopping experience with real-time inventory management.",
-            technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
-            features: [
-              "Product catalog with filters",
-              "Shopping cart functionality",
-              "Secure payment processing",
-              "User authentication"
-            ]
-          }}
+          title="StyleRush"
+          description="Modern fashion e-commerce platform with smooth UX, filters, and secure checkout built with Next.js."
+          githubUrl="https://github.com/Tushar8466/stylerush"
+          previewUrl="https://stylerush.vercel.app"
         />
         <Cards
-          title="UI/UX Design"
-          description="Design system and component library"
-          href="https://github.com"
-          imageSrc="/globe.svg"
-          details={{
-            about: "A comprehensive design system with reusable components and design tokens for consistent user experiences across platforms.",
-            technologies: ["Figma", "React", "Storybook", "CSS"],
-            features: [
-              "Component library",
-              "Design tokens",
-              "Documentation",
-              "Accessibility compliance"
-            ]
-          }}
+          imageSrc="/assets/project2.png"
+          title="Dashboard Analytics"
+          description="Interactive admin dashboard with real-time charts, dark mode, and responsive layout."
+          githubUrl="https://github.com"
+          previewUrl="https://example.com"
         />
         <Cards
-          title="Mobile Apps"
-          description="Cross-platform mobile application"
-          href="https://github.com"
-          imageSrc="/next.svg"
-          details={{
-            about: "A React Native application that works seamlessly on both iOS and Android platforms with native performance.",
-            technologies: ["React Native", "Expo", "Firebase", "Redux"],
-            features: [
-              "Cross-platform compatibility",
-              "Offline mode support",
-              "Push notifications",
-              "Real-time synchronization"
-            ]
-          }}
+          imageSrc="/assets/project3.png"
+          title="Portfolio Site"
+          description="Personal portfolio showcasing projects, skills, and animated sections built with modern UI."
+          githubUrl="https://github.com"
+          previewUrl="https://example.com"
         />
         <Cards
-          title="Full Stack"
-          description="Complete web application with backend"
-          href="https://github.com"
-          imageSrc="/vercel.svg"
-          details={{
-            about: "A full-stack application with RESTful API, database management, and modern frontend built with best practices.",
-            technologies: ["Node.js", "Express", "PostgreSQL", "React"],
-            features: [
-              "RESTful API",
-              "Database management",
-              "Authentication & authorization",
-              "Real-time updates"
-            ]
-          }}
-        /> */}
+          imageSrc="/assets/project4.png"
+          title="Landing Page"
+          description="High-converting marketing landing page with hero animations and responsive design."
+          githubUrl="https://github.com"
+          previewUrl="https://example.com"
+        />
+        <Cards
+          imageSrc="/assets/project5.png"
+          title="SaaS Platform"
+          description="UI for a SaaS product with pricing sections, onboarding flow, and clean dashboard."
+          githubUrl="https://github.com"
+          previewUrl="https://example.com"
+        />
+        <Cards
+          imageSrc="/assets/project6.png"
+          title="Blog Platform"
+          description="Blog interface with featured posts, tags, and smooth reading experience."
+          githubUrl="https://github.com"
+          previewUrl="https://example.com"
+        />
       </div>
 
 
