@@ -34,6 +34,7 @@ export const GoogleGeminiEffect = ({
               "a Student",
               "a Frontend Developer",
               "passionate towards coding",
+              "a open source contibutor"
             ]}
             className="rounded-2xl p-2 bg-blue-500 mt-2"
           />

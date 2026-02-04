@@ -6,6 +6,7 @@ import { GoogleGeminiEffect } from "./ui/google-gemini-effect";
 import { LampContainer } from "./ui/lamp";
 import { motion } from "motion/react";
 import Cards from "./Cards";
+import { div } from "motion/react-client";
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -90,7 +91,11 @@ export default function HeroSection() {
         </motion.h1>
       </LampContainer> */}
       <div ref={cardsRef} className="flex gap-6 flex-wrap justify-center">
-        <Cards
+        {
+         <Cards />
+
+        }
+        {/* <Cards
           title="StyleRush"
           description="E-commerce platform for fashion and style"
           href="https://github.com/Tushar8466/stylerush"
@@ -153,7 +158,7 @@ export default function HeroSection() {
               "Real-time updates"
             ]
           }}
-        />
+        /> */}
       </div>
 
 
