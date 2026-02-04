@@ -12,6 +12,7 @@ import {
     NavbarLogo,
     NavbarButton,
 } from "./ui/resizable-navbar";
+import { NoiseBackground } from "@/components/ui/noise-background";
 
 const navItems = [
     { name: "Home", link: "#" },
@@ -30,7 +31,15 @@ export default function Navbar() {
                 <NavItems items={navItems} />
                 <div className="relative z-20 flex items-center space-x-2">
                     <NavbarButton href="#contact" variant="dark">
-                        Get in Touch
+                        <NoiseBackground
+                            gradientColors={["rgb(255, 100, 150)", "rgb(100, 150, 255)", "rgb(255, 200, 100)"]}
+                            noiseIntensity={0.2}
+                            speed={0.1}
+                            backdropBlur={false}
+                            animating={true}
+                        >
+                            Get in Touch
+                        </NoiseBackground>
                     </NavbarButton>
                 </div>
             </NavBody>
@@ -52,7 +61,16 @@ export default function Navbar() {
                         </a>
                     ))}
                     <NavbarButton href="#contact" variant="dark" className="w-full">
-                        Get in Touch
+                        <NoiseBackground
+                            gradientColors={["rgb(255, 100, 150)", "rgb(100, 150, 255)", "rgb(255, 200, 100)"]}
+                            noiseIntensity={0.2}
+                            speed={0.1}
+                            className="w-full"
+                            backdropBlur={false}
+                            animating={true}
+                        >
+                            Get in Touch
+                        </NoiseBackground>
                     </NavbarButton>
                 </MobileNavMenu>
             </MobileNav>
