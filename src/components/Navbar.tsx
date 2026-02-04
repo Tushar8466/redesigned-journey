@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+
 import {
     Navbar as NavbarWrapper,
     NavBody,
@@ -14,10 +15,10 @@ import {
 } from "./ui/resizable-navbar";
 
 const navItems = [
-    { name: "Home", link: "#" },
+    { name: "Home", link: "#home" },
     { name: "About", link: "#about" },
-    { name: "Projects", link: "Cards.tsx" },
-    { name: "Contact", link: "#contact" },
+    { name: "Projects", link: "#projects" },
+    { name: "Contact", link: "#contactsection" },
 ];
 
 export default function Navbar() {
@@ -29,7 +30,7 @@ export default function Navbar() {
                 <NavbarLogo />
                 <NavItems items={navItems} />
                 <div className="relative z-20 flex items-center space-x-2">
-                    <NavbarButton href="#contact" variant="dark" className="p-1 bg-gradient-to-r bg-blue-500">
+                    <NavbarButton href="#contact" variant="dark" className="p-1 bg-linear-to-r bg-blue-500">
                         <div className="p-2 rounded-l-lg">
                             Get in touch
                         </div>

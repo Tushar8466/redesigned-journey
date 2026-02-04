@@ -62,7 +62,7 @@ const techStacks = [
 
 export default function TechStacks() {
     return (
-        <LampContainer className="min-h-screen bg-black w-full">
+        <LampContainer id="about" className="min-h-screen bg-black w-full">
             <motion.h1
                 initial={{ opacity: 0.5, y: 100 }}
                 whileInView={{ opacity: 1, y: 0 }}
