@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import type { MotionValue } from "motion";
 import React from "react";
 import { FlipWords } from "./flip-words";
+import Cards from "../Cards";
 
 const transition = {
   duration: 0,
@@ -46,6 +47,7 @@ export const GoogleGeminiEffect = ({
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-40 text-white uppercase text-sm">
         scroll
       </div>
+      {/* Cards positioned over the SVG */}
       <svg
         width="1440"
         height="890"

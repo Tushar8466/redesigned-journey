@@ -12,7 +12,6 @@ import {
     NavbarLogo,
     NavbarButton,
 } from "./ui/resizable-navbar";
-import { NoiseBackground } from "@/components/ui/noise-background";
 
 const navItems = [
     { name: "Home", link: "#" },
@@ -30,16 +29,10 @@ export default function Navbar() {
                 <NavbarLogo />
                 <NavItems items={navItems} />
                 <div className="relative z-20 flex items-center space-x-2">
-                    <NavbarButton href="#contact" variant="dark">
-                        <NoiseBackground
-                            gradientColors={["rgb(255, 100, 150)", "rgb(100, 150, 255)", "rgb(255, 200, 100)"]}
-                            noiseIntensity={0.2}
-                            speed={0.1}
-                            backdropBlur={false}
-                            animating={true}
-                        >
-                            Get in Touch
-                        </NoiseBackground>
+                    <NavbarButton href="#contact" variant="dark" className="p-1 bg-gradient-to-r bg-blue-500">
+                        <div className="p-2 rounded-l-lg">
+                            Get in touch
+                        </div>
                     </NavbarButton>
                 </div>
             </NavBody>
@@ -61,16 +54,7 @@ export default function Navbar() {
                         </a>
                     ))}
                     <NavbarButton href="#contact" variant="dark" className="w-full">
-                        <NoiseBackground
-                            gradientColors={["rgb(255, 100, 150)", "rgb(100, 150, 255)", "rgb(255, 200, 100)"]}
-                            noiseIntensity={0.2}
-                            speed={0.1}
-                            className="w-full"
-                            backdropBlur={false}
-                            animating={true}
-                        >
-                            Get in Touch
-                        </NoiseBackground>
+                        Get in touch
                     </NavbarButton>
                 </MobileNavMenu>
             </MobileNav>

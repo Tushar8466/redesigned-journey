@@ -1,13 +1,16 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useScroll, useTransform } from "motion/react";
 import { GoogleGeminiEffect } from "./ui/google-gemini-effect";
 import { LampContainer } from "./ui/lamp";
 import { motion } from "motion/react";
+import Cards from "./Cards";
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
+  const [shouldBlur, setShouldBlur] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -28,8 +31,32 @@ export default function HeroSection() {
     pathLengthFifth,
   ];
 
-
   const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
+
+  useEffect(() => {
+    const checkIntersection = () => {
+      if (!cardsRef.current) return;
+
+      const cardsRect = cardsRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      // Check if cards are in the top portion of viewport where Gemini effect is visible
+      // Gemini effect is sticky at top, so we check if cards are in top 80% of viewport
+      const isInGeminiArea = cardsRect.top < viewportHeight * 0.8 && cardsRect.bottom > 0;
+
+      setShouldBlur(isInGeminiArea);
+    };
+
+    // Check on scroll and initial load
+    const handleScroll = () => {
+      requestAnimationFrame(checkIntersection);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    checkIntersection();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div
@@ -38,7 +65,8 @@ export default function HeroSection() {
     >
       <GoogleGeminiEffect
         pathLengths={pathLengths}
-        className="sticky top-0 h-screen w-full"
+        className={`sticky top-0 h-screen w-full transition-all duration-500 ${shouldBlur ? "blur-md" : "blur-0"
+          }`}
       />
 
       <div
@@ -61,6 +89,75 @@ export default function HeroSection() {
           Build products <br /> the right way
         </motion.h1>
       </LampContainer> */}
+      <div ref={cardsRef} className="flex gap-6 flex-wrap justify-center">
+        <Cards
+          title="StyleRush"
+          description="E-commerce platform for fashion and style"
+          href="https://github.com/Tushar8466/stylerush"
+          imageSrc="/assets/project1.png"
+          details={{
+            about: "A modern e-commerce platform built with Next.js and TypeScript, featuring seamless shopping experience with real-time inventory management.",
+            technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
+            features: [
+              "Product catalog with filters",
+              "Shopping cart functionality",
+              "Secure payment processing",
+              "User authentication"
+            ]
+          }}
+        />
+        <Cards
+          title="UI/UX Design"
+          description="Design system and component library"
+          href="https://github.com"
+          imageSrc="/globe.svg"
+          details={{
+            about: "A comprehensive design system with reusable components and design tokens for consistent user experiences across platforms.",
+            technologies: ["Figma", "React", "Storybook", "CSS"],
+            features: [
+              "Component library",
+              "Design tokens",
+              "Documentation",
+              "Accessibility compliance"
+            ]
+          }}
+        />
+        <Cards
+          title="Mobile Apps"
+          description="Cross-platform mobile application"
+          href="https://github.com"
+          imageSrc="/next.svg"
+          details={{
+            about: "A React Native application that works seamlessly on both iOS and Android platforms with native performance.",
+            technologies: ["React Native", "Expo", "Firebase", "Redux"],
+            features: [
+              "Cross-platform compatibility",
+              "Offline mode support",
+              "Push notifications",
+              "Real-time synchronization"
+            ]
+          }}
+        />
+        <Cards
+          title="Full Stack"
+          description="Complete web application with backend"
+          href="https://github.com"
+          imageSrc="/vercel.svg"
+          details={{
+            about: "A full-stack application with RESTful API, database management, and modern frontend built with best practices.",
+            technologies: ["Node.js", "Express", "PostgreSQL", "React"],
+            features: [
+              "RESTful API",
+              "Database management",
+              "Authentication & authorization",
+              "Real-time updates"
+            ]
+          }}
+        />
+      </div>
+
+
     </div>
+
   );
 }
