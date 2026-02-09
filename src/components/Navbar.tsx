@@ -30,7 +30,7 @@ export default function Navbar() {
                 <NavbarLogo />
                 <NavItems items={navItems} />
                 <div className="relative z-20 flex items-center space-x-2">
-                    <NavbarButton href="#contact" variant="dark" className="p-1 bg-linear-to-r bg-blue-500">
+                    <NavbarButton href="#contact" variant="dark" className="p-1 bg-linear-to-r bg-blue-500 hover:bg-blue-600">
                         <div className="p-2 rounded-l-lg">
                             Get in touch
                         </div>
